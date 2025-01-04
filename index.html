@@ -9,46 +9,52 @@
     <link type="text/css" rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="text-center text-white">Happy birthday to Takion</p>
-        <h2 class="text-center text-white">Wishing you an amazing year ahead!</p>
+    <div class="container">
+        <div id="capture">
+            <br>
+            <h1 class="text-center text-white">Happy birthday to Takion</p>
+            <h2 class="text-center text-white">Wishing you an amazing year ahead!</p>
 
-        <div class="balloon-009 mt-5">
-            <img src="img/birthday_present.png" alt="" />
-            <p class="fs-6 text-start">タキオンくんにお誕生日のお祝いメッセージが届いています！</p>
+            <div class="balloon-009 mt-5">
+                <img src="img/birthday_present.png" alt="" />
+                <p class="fs-6 text-start">タキオンくんにお誕生日のお祝いメッセージが届いています！</p>
+            </div>
+            <hr/>
+
+            <div class="balloon-010 mt-5">
+                <p class="fs-6">これは会話風の吹き出しです。お好きなアイコン画像を指定できます。</p>
+                <img src="img/rizutana_400x400.jpg" alt="" />
+            </div>
+
+            <div class="balloon-010 mt-5">
+                <p class="fs-6">これは会話風の吹き出しです。お好きなアイコン画像を指定できます。</p>
+                <img src="img/poyo_400x400.jpg" alt="" />
+            </div>
+
+            <div class="balloon-010 mt-5">
+                <p class="fs-6">これは会話風の吹き出しです。お好きなアイコン画像を指定できます。</p>
+                <img src="img/lee_400x400.jpg" alt="" />
+            </div>
+
+            <div class="balloon-010 mt-5">
+                <p class="fs-6">これは会話風の吹き出しです。お好きなアイコン画像を指定できます。</p>
+                <img src="img/tama_400x400.jpg" alt="" />
+            </div>
+
+            <div class="balloon-010 mt-5">
+                <p class="fs-6">これは会話風の吹き出しです。お好きなアイコン画像を指定できます。</p>
+                <img src="img/glass_400x400.jpg" alt="" />
+            </div>
+
+            <div class="balloon-010 mt-5">
+                <p class="fs-6">これは会話風の吹き出しです。お好きなアイコン画像を指定できます。</p>
+                <img src="img/hue_400x400.jpg" alt="" />
+            </div>
+            <br>
         </div>
-        <hr/>
-
-        <div class="balloon-010 mt-5">
-            <p class="fs-6">これは会話風の吹き出しです。お好きなアイコン画像を指定できます。</p>
-            <img src="img/rizutana_400x400.jpg" alt="" />
+        <div class="d-flex flex-row-reverse">
+            <button id="screenshot">スクショ</button>
         </div>
-
-        <div class="balloon-010 mt-5">
-            <p class="fs-6">これは会話風の吹き出しです。お好きなアイコン画像を指定できます。</p>
-            <img src="img/poyo_400x400.jpg" alt="" />
-        </div>
-
-        <div class="balloon-010 mt-5">
-            <p class="fs-6">これは会話風の吹き出しです。お好きなアイコン画像を指定できます。</p>
-            <img src="img/lee_400x400.jpg" alt="" />
-        </div>
-
-        <div class="balloon-010 mt-5">
-            <p class="fs-6">これは会話風の吹き出しです。お好きなアイコン画像を指定できます。</p>
-            <img src="img/tama_400x400.jpg" alt="" />
-        </div>
-
-        <div class="balloon-010 mt-5">
-            <p class="fs-6">これは会話風の吹き出しです。お好きなアイコン画像を指定できます。</p>
-            <img src="img/glass_400x400.jpg" alt="" />
-        </div>
-
-        <div class="balloon-010 mt-5">
-            <p class="fs-6">これは会話風の吹き出しです。お好きなアイコン画像を指定できます。</p>
-            <img src="img/hue_400x400.jpg" alt="" />
-        </div>
-
     </div>
     <footer>
         <p class="text-center text-white fs-6">Copyright © 2025 ポヨんちの部屋. All Rights Reserved.</small>
@@ -57,5 +63,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        document.getElementById('screenshot').addEventListener('click', function() {
+            html2canvas(document.getElementById('capture')).then(function(canvas) {
+                let link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png');
+                link.download = 'capture.png';
+                link.click();
+            });
+        });
+    </script>
 </body>
 </html>
