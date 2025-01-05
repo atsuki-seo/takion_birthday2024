@@ -1,0 +1,66 @@
+.speechBubbleContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.speechBubbleLeft {
+    position: relative;
+    display: inline-block;
+    margin-left: 24px;
+    padding: 16px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #000000;
+}
+
+.speechBubbleLeft::after {
+    content: "";
+    position: absolute;
+    top: 60%;
+    left: 0;
+    border-style: solid;
+    border-width: 0 16px 16px 0;
+    border-color: transparent #ffffff transparent transparent;
+    translate: -100% calc(-50% - 0.4px);
+    transform: skew(0, -10deg);
+    transform-origin: right;
+}
+
+.speechBubbleRight {
+    position: relative;
+    display: inline-block;
+    margin-right: 24px;
+    padding: 16px;
+    border-radius: 12px;
+    background-color: #9bee8c;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #000000;
+}
+
+.speechBubbleRight::after {
+    content: "";
+    position: absolute;
+    top: 60%;
+    right: 0;
+    border-style: solid;
+    border-width: 8px 0 8px 16px;
+    border-color: transparent transparent transparent #9bee8c;
+    translate: 100% -50%;
+    transform: skew(0, -10deg);
+    transform-origin: left;
+}
+
+.circleImage {
+    max-width: 70px;
+    max-height: 70px;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+}
