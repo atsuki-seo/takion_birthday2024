@@ -102,7 +102,7 @@
         });
     </script>
     <script>
-        document.getElementById('reset').addEventListener('click', function() {
+        const resetFunction = () => {
             const existingImg = document.getElementById('capturedImage');
             const existingH2 = document.getElementById('capturedTitle');
             if (existingImg) {
@@ -111,7 +111,10 @@
             if (existingH2) {
                 existingH2.remove();
             }
-        });
+        };
+
+        document.getElementById('reset').addEventListener('click', resetFunction);
+        window.addEventListener('resize', resetFunction);
     </script>
 </body>
 </html>
