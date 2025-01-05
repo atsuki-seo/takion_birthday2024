@@ -58,11 +58,14 @@
         </div>
 
         <div class="d-flex justify-content-center">
-            <button id="screenshot">スクショ</button>
+            <button id="screenshot">📸 スクショを撮る</button>
+            <button id="reset" class="ms-3">♻️ リセット</button>
         </div>
 
-        <hr class="text-white" />
-        <footer>
+        <div id="capturedImageDiv" class="mx-auto mt-5 border border-white">
+        </div>
+
+        <footer class="mt-5">
             <p class="text-center text-white fs-6">Copyright © 2025 ポヨんちの部屋. All Rights Reserved.</small>
         </footer>
     </div>
@@ -74,11 +77,44 @@
     <script>
         document.getElementById('screenshot').addEventListener('click', function() {
             html2canvas(document.getElementById('capture')).then(function(canvas) {
-                let link = document.createElement('a');
-                link.href = canvas.toDataURL('image/png');
-                link.download = 'capture.png';
-                link.click();
+                const existingImg = document.getElementById('capturedImage');
+                const existingH2 = document.getElementById('capturedTitle');
+                if (existingImg) {
+                    existingImg.remove();
+                }
+                if (existingH2) {
+                    existingH2.remove();
+                }
+
+                const imageData = canvas.toDataURL('image/png');
+
+                const img = document.createElement('img');
+                img.id = 'capturedImage';
+                img.src = imageData;
+                img.alt = 'Captured Screenshot';
+                img.style.maxWidth = '100%';
+
+                const h2 = document.createElement('h2');
+                h2.id = "capturedTitle"
+                h2.className = "text-center text-white";
+                h2.textContent = "📸 スクショプレビュー"
+
+                const parent = document.getElementById('capturedImageDiv');
+                parent.append(h2);
+                parent.append(img);
             });
+        });
+    </script>
+    <script>
+        document.getElementById('reset').addEventListener('click', function() {
+            const existingImg = document.getElementById('capturedImage');
+            const existingH2 = document.getElementById('capturedTitle');
+            if (existingImg) {
+                existingImg.remove();
+            }
+            if (existingH2) {
+                existingH2.remove();
+            }
         });
     </script>
 </body>
