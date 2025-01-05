@@ -20,6 +20,9 @@
                 <img src="img/birthday_present.png" alt="" />
                 <p class="fs-6 text-start">タキオンくんにお誕生日のお祝いメッセージが届いています！</p>
             </div>
+            <div class="d-flex justify-content-center mt-3">
+                <audio type="audio/mpeg" src="sounds/MB03-1.mp3" autoplay controls></audio>
+            </div>
             <hr class="text-white"/>
 
             <div class="balloon-010 mt-5">
@@ -58,9 +61,6 @@
         <div class="d-flex justify-content-center">
             <button id="screenshot">スクショ</button>
         </div>
-        <div class="d-flex justify-content-center mt-3">
-            <audio type="audio/mpeg" src="sounds/MB03-1.mp3" autoplay controls></audio>
-        </div>
 
         <hr class="text-white" />
         <footer>
@@ -77,7 +77,7 @@
             html2canvas(document.getElementById('capture')).then(function(canvas) {
                 let link = document.createElement('a');
                 link.href = canvas.toDataURL('image/png');
-                // link.download = 'capture.png';
+                link.download = 'capture.png';
                 link.click();
             });
         });
