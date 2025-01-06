@@ -22,7 +22,7 @@
                 <p class="speechBubbleLeft fs-6 text-start">タキオンくんにお誕生日のお祝いメッセージが届いています!</p>
             </div>
             <div class="d-flex justify-content-center mt-3">
-                <audio type="audio/mpeg" src="sounds/MB03-1.mp3" autoplay muted controls></audio>
+                <audio id="bgmPlayer" type="audio/mpeg" controls></audio>
             </div>
             <hr class="text-white"/>
 
@@ -71,6 +71,32 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        /**
+         * 指定した範囲内の整数型乱数を文字列型に変換し、末尾に.mp3を付けて返す関数
+         * 
+         * @param {number} min - 乱数の最小値（範囲に含む）
+         * @param {number} max - 乱数の最大値（範囲に含む）
+         * @returns {string} 生成された乱数と.mp3を連結した文字列
+         */
+        function getRandomFilename(min, max) {
+            // 順序を補正
+            if (min > max) [min, max] = [max, min];
+
+            // 範囲内の乱数を生成
+            const randomInt = Math.floor(Math.random() * (max - min + 1)) + min;
+
+            // 文字列型に変換し.mp3を付加
+            return `sounds/${randomInt}.mp3`;
+        }
+
+        window.addEventListener('load', () => {
+            const audioPlayer = document.getElementById("bgmPlayer");
+            if (audioPlayer) {
+                audioPlayer.src = getRandomFilename(1, 14);
+            }
+        });
+    </script>
     <script>
         document.getElementById('screenshot').addEventListener('click', function() {
             html2canvas(document.getElementById('capture'), {scale: 2}).then(function(canvas) {
