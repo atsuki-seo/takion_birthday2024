@@ -14,8 +14,8 @@
     <div class="container">
         <div id="capture" class="p-2">
             <br>
-            <h1 class="text-center text-white">Happy birthday to Takion</p>
-            <h2 class="text-center text-white">Wishing you an amazing year ahead!</p>
+            <h1 class="text-center">Happy birthday to Takion</p>
+            <h2 class="text-center">Wishing you an amazing year ahead!</p>
 
             <div class="d-flex justify-content-center speechBubbleContainer mt-5">
                 <img class="circleImage" src="img/birthday_present.png" alt="" />
@@ -27,27 +27,27 @@
             <hr class="text-white"/>
 
             <div class="d-flex justify-content-center speechBubbleContainer mt-3">
-                <p class="speechBubbleRight fs-6 text-start">タキオンくんにお誕生日のお祝いメッセージが届いています!<br>BGM聞きながら、メッセージを見てみてね!</p>
+                <p id="rizutanaMessage" class="speechBubbleRight fs-6 text-start">タキオンくんにお誕生日のお祝いメッセージが届いています!</p>
                 <img class="circleImage" src="img/rizutana_400x400.jpg" alt="" />
             </div>
             <div class="d-flex justify-content-center speechBubbleContainer mt-3">
-                <p class="speechBubbleRight fs-6 text-start">タキオンくんにお誕生日のお祝いメッセージが届いています!<br>BGM聞きながら、メッセージを見てみてね!</p>
+                <p id="leeMessage" class="speechBubbleRight fs-6 text-start">タキオンくんにお誕生日のお祝いメッセージが届いています!</p>
                 <img class="circleImage" src="img/lee_400x400.jpg" alt="" />
             </div>
             <div class="d-flex justify-content-center speechBubbleContainer mt-3">
-                <p class="speechBubbleRight fs-6 text-start">タキオンくんにお誕生日のお祝いメッセージが届いています!<br>BGM聞きながら、メッセージを見てみてね!</p>
+                <p id="glassMessage" class="speechBubbleRight fs-6 text-start">タキオンくんにお誕生日のお祝いメッセージが届いています!</p>
                 <img class="circleImage" src="img/glass_400x400.jpg" alt="" />
             </div>
             <div class="d-flex justify-content-center speechBubbleContainer mt-3">
-                <p class="speechBubbleRight fs-6 text-start">タキオンくんにお誕生日のお祝いメッセージが届いています!<br>BGM聞きながら、メッセージを見てみてね!</p>
+                <p id="tamaMessage" class="speechBubbleRight fs-6 text-start">タキオンくんにお誕生日のお祝いメッセージが届いています!</p>
                 <img class="circleImage" src="img/tama_400x400.jpg" alt="" />
             </div>
             <div class="d-flex justify-content-center speechBubbleContainer mt-3">
-                <p class="speechBubbleRight fs-6 text-start">タキオンくんにお誕生日のお祝いメッセージが届いています!<br>BGM聞きながら、メッセージを見てみてね!</p>
+                <p id="hueMessage" class="speechBubbleRight fs-6 text-start">タキオンくんにお誕生日のお祝いメッセージが届いています!</p>
                 <img class="circleImage" src="img/hue_400x400.jpg" alt="" />
             </div>
             <div class="d-flex justify-content-center speechBubbleContainer mt-3">
-                <p class="speechBubbleRight fs-6 text-start">タキオンくんにお誕生日のお祝いメッセージが届いています!<br>BGM聞きながら、メッセージを見てみてね!</p>
+                <p id="poyoMessage" class="speechBubbleRight fs-6 text-start">タキオンくんにお誕生日のお祝いメッセージが届いています!</p>
                 <img class="circleImage" src="img/poyo_400x400.jpg" alt="" />
             </div>
 
@@ -73,6 +73,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script>
         /**
+         * ページ読み込み時に背景色をランダムに設定する関数
+         */
+        function setRandomBackgroundColor() {
+            const colors = [
+                "#769ece", // 元の背景色（許容範囲内）
+                "#f4a1b2", // 落ち着いたチェリーピンク
+                "#f7cbaa", // ソフトサンドオレンジ
+                "#c9a6e3", // スモーキーラベンダーパープル
+                "#f5b7cf", // ペールローズ
+                "#f9df95", // 柔らかなクリームゴールド
+                "#b596d6", // ダスティパープル
+                "#e6a9a9", // ダスティローズ
+                "#e9b8cf", // ミスティーローズピンク
+                "#d4b4e7"  // ダルパステルパープル
+            ];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.style.backgroundColor = randomColor;
+            document.getElementById('capture').style.backgroundColor = randomColor;
+        }
+        /**
          * 指定した範囲内の整数型乱数を文字列型に変換し、末尾に.mp3を付けて返す関数
          * 
          * @param {number} min - 乱数の最小値（範囲に含む）
@@ -95,6 +115,7 @@
             if (audioPlayer) {
                 audioPlayer.src = getRandomFilename(1, 14);
             }
+            setRandomBackgroundColor();
         });
     </script>
     <script>
